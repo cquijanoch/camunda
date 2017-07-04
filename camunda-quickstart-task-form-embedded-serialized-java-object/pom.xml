@@ -6,6 +6,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>Task Form Embedded</name>
+  <finalName>demo2</finalName>
 
   <properties>
     <maven.compiler.source>1.6</maven.compiler.source>
@@ -31,5 +32,9 @@
     </dependency>
 
   </dependencies>
+  
+  <build>
+  	<finalName>demo2</finalName>
+  </build>
 
 </project>
