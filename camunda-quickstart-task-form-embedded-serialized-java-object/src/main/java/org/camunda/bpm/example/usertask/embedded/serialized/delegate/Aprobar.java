@@ -13,8 +13,6 @@ public class Aprobar implements JavaDelegate {
 
   public void execute(DelegateExecution execution) throws Exception {
 
-    Solicitud customerData = (Solicitud) execution.getVariable("clienteFull");
-
     System.out.println("aprobacion diga");
 
   }

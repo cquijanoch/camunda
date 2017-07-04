@@ -2,7 +2,7 @@
 
   <script cam-script type="text/form-script">
 
-
+	
     camForm.on('form-loaded', function() {
      
       camForm.variableManager.fetchVariable('cliente');
@@ -19,11 +19,11 @@
 
 	<div class="control-group">
 		<label>
-		    <input type="radio" ng-model="cliente" ng-value="true">
+		    <input type="radio" ng-model="cliente.completed" ng-value="true">
 		   	 Completo
 		  	</label><br/>
 		  <label>
-		    <input type="radio" ng-model="cliente" ng-value="false">
+		    <input type="radio" ng-model="cliente.completed" ng-value="false">
 		    Incompleto
 		  </label><br/>
 	</div>

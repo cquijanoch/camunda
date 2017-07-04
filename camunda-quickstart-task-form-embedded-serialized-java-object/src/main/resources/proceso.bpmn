@@ -39,17 +39,17 @@
       <outgoing>SequenceFlow_17</outgoing>
     </exclusiveGateway>
     <sequenceFlow id="SequenceFlow_16" name="No" sourceRef="ExclusiveGateway_2" targetRef="EndEvent_2">
-      <conditionExpression xsi:type="tFormalExpression">${not cliente}</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${not cliente.prop("completed").boolValue()}]]></conditionExpression>
     </sequenceFlow>
     <sequenceFlow id="SequenceFlow_17" name="Si" sourceRef="ExclusiveGateway_2" targetRef="UserTask_1">
-      <conditionExpression xsi:type="tFormalExpression">${cliente}</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${cliente.prop("completed").boolValue()}]]></conditionExpression>
     </sequenceFlow>
     <userTask id="UserTask_1" camunda:formKey="embedded:app:forms/ingresarRequerimiento-form.html" camunda:assignee="demo" name="Ingresar requerimiento">
       <incoming>SequenceFlow_17</incoming>
       <outgoing>SequenceFlow_18</outgoing>
     </userTask>
     <sequenceFlow id="SequenceFlow_18" name="" sourceRef="UserTask_1" targetRef="ServiceTask_1"/>
-    <serviceTask id="ServiceTask_1" camunda:class="org.camunda.bpm.example.usertask.embedded.serialized.delegate.RegistrarReqierimiento" name="Registrar requerimiento">
+    <serviceTask id="ServiceTask_1" camunda:class="org.camunda.bpm.example.usertask.embedded.serialized.delegate.RegistrarRequerimiento" name="Registrar requerimiento">
       <incoming>SequenceFlow_18</incoming>
       <outgoing>SequenceFlow_14</outgoing>
     </serviceTask>
@@ -65,14 +65,14 @@
       <outgoing>SequenceFlow_21</outgoing>
     </exclusiveGateway>
     <sequenceFlow id="SequenceFlow_20" name="Si" sourceRef="ExclusiveGateway_1" targetRef="ServiceTask_2">
-      <conditionExpression xsi:type="tFormalExpression">${clienteFull.aprobado}</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${aprobacionDiga.prop("completed").boolValue()}]]></conditionExpression>
     </sequenceFlow>
     <serviceTask id="ServiceTask_2" camunda:class="org.camunda.bpm.example.usertask.embedded.serialized.delegate.Aprobar" name="Aprobar Requerimmiento">
       <incoming>SequenceFlow_20</incoming>
       <outgoing>SequenceFlow_23</outgoing>
     </serviceTask>
     <sequenceFlow id="SequenceFlow_21" name="No" sourceRef="ExclusiveGateway_1" targetRef="ServiceTask_3">
-      <conditionExpression xsi:type="tFormalExpression">${not clienteFull.aprobado}</conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${not aprobacionDiga.prop("completed").boolValue()}]]></conditionExpression>
     </sequenceFlow>
     <serviceTask id="ServiceTask_3" camunda:class="org.camunda.bpm.example.usertask.embedded.serialized.delegate.Rechazar" name="Cambiar estado Rechazado">
       <incoming>SequenceFlow_21</incoming>
