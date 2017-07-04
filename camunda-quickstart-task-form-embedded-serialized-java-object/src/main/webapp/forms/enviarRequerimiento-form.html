@@ -1,0 +1,33 @@
+<form name="customerForm" role="form">
+
+  <script cam-script type="text/form-script">
+
+  
+
+    var cliente = $scope.cliente = {};
+
+    camForm.on('form-loaded', function() {
+
+      camForm.variableManager.createVariable({
+        name: 'cliente',
+        type: 'json',
+        value: cliente
+      });
+    });
+
+  </script>
+
+  <h3>Cliente</h3>
+
+	<div class="control-group">
+		<label>
+		    <input type="radio" name="completado" ng-model="cliente" ng-value="true">
+		   	 Completo
+		  	</label><br/>
+		  <label>
+		    <input type="radio" name="completado" ng-model="cliente" ng-value="false">
+		    Incompleto
+		  </label><br/>
+	</div>
+
+</form>

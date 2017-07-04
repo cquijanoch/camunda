@@ -1,0 +1,67 @@
+<form name="customerForm" role="form">
+
+  <script cam-script type="text/form-script">
+
+	var clienteFull = $scope.clienteFull = {};
+	camForm.on('form-loaded', function() {
+    
+    	camForm.variableManager.fetchVariable('solicitud');
+		
+		camForm.variableManager.createVariable({
+        name: 'clienteFull',
+        type: 'Object',
+        value: clienteFull,
+        valueInfo: {
+         	
+          serializationDataFormat: 'application/json',
+          
+          objectTypeName: 'org.camunda.bpm.example.usertask.embedded.serialized.model.Solicitud'
+        }
+      });
+	});
+
+ 	 	camForm.on('variables-fetched', function() {
+    
+	    	$scope.clienteFull = camForm.variableManager.variableValue('solicitud');
+			
+  		});
+	
+
+  </script>
+
+  <h3>Cliente</h3>
+
+	<div class="control-group">
+		<label class="control-label" for="firstname">Nombres</label>
+		<div class="controls">
+			<input id="firstname" class="form-control" type="text" disabled
+				ng-model="clienteFull.nombres">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="firstname">Apellidos</label>
+		<div class="controls">
+			<input id="firstname" class="form-control" type="text" disabled
+				ng-model="clienteFull.apellidos">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="firstname">Descripcion</label>
+		<div class="controls">
+			<input id="firstname" class="form-control" type="text" disabled
+				ng-model="clienteFull.solicitud">
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label>
+		    <input type="radio" name="completado" ng-model="clienteFull.aprobado" ng-value="true">
+		   	 Completo
+		  	</label><br/>
+		  <label>
+		    <input type="radio" name="completado" ng-model="clienteFull.aprobado" ng-value="false">
+		    Incompleto
+		  </label><br/>
+	</div>
+
+</form>

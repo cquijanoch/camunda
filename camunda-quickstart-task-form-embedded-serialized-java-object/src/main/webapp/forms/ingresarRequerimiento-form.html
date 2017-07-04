@@ -1,0 +1,56 @@
+<form name="customerForm" role="form">
+
+  <script cam-script type="text/form-script">
+
+
+    var clienteFull = $scope.clienteFull = {
+      	nombres:"",
+		apellidos:"",
+		solicitud:""
+    };
+
+
+    camForm.on('form-loaded', function() {
+
+      camForm.variableManager.createVariable({
+        name: 'clienteFull',
+        type: 'Object',
+        value: clienteFull,
+        valueInfo: {
+         	
+          serializationDataFormat: 'application/json',
+          
+          objectTypeName: 'org.camunda.bpm.example.usertask.embedded.serialized.model.Solicitud'
+        }
+      });
+
+    });
+
+
+  </script>
+
+  <h3>Cliente</h3>
+
+	<div class="control-group">
+		<label class="control-label" for="firstname">Nombres</label>
+		<div class="controls">
+			<input id="firstname" class="form-control" type="text" required
+				ng-model="clienteFull.nombres">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="firstname">Apellidos</label>
+		<div class="controls">
+			<input id="firstname" class="form-control" type="text" required
+				ng-model="clienteFull.apellidos">
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="firstname">Descripcion</label>
+		<div class="controls">
+			<textarea id="firstname" class="form-control" required
+				ng-model="clienteFull.solicitud"></textarea>>
+		</div>
+	</div>
+
+</form>
